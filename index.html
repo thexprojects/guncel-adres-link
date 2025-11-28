@@ -237,28 +237,33 @@
       background: #f1f5f9;
     }
 
-    /* TELEGRAM CARD */
+    /* TELEGRAM CARD – site çizgisine uygun, beyaz kart */
     .telegram-card {
       margin-top: 24px;
       padding: 14px 16px;
-      border-radius: 20px;
-      background: linear-gradient(135deg, #0ea5e9, #0369a1);
-      color: #e0f2fe;
+      border-radius: 18px;
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
       display: flex;
       align-items: center;
       gap: 12px;
-      box-shadow: 0 14px 30px rgba(15,23,42,0.25);
+      box-shadow: 0 10px 24px rgba(15,23,42,0.06);
     }
 
     .telegram-icon {
       width: 40px;
       height: 40px;
       border-radius: 999px;
-      background: rgba(15,23,42,0.18);
+      background: #e0f2fe;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 22px;
+    }
+
+    .telegram-icon svg {
+      width: 22px;
+      height: 22px;
+      display: block;
     }
 
     .telegram-text {
@@ -267,17 +272,16 @@
     }
 
     .telegram-title {
-      font-size: 14px;
+      font-size: 13px;
       font-weight: 700;
       margin-bottom: 2px;
-      color: #f9fafb;
+      color: #0f172a;
     }
 
     .telegram-subtitle {
       font-size: 12px;
       line-height: 1.4;
-      color: #e0f2fe;
-      opacity: 0.95;
+      color: #64748b;
     }
 
     .telegram-btn {
@@ -288,14 +292,15 @@
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.08em;
-      background: #f9fafb;
+      background: #ffffff;
       color: #0369a1;
+      border: 1px solid #0ea5e9;
       text-decoration: none;
       white-space: nowrap;
     }
 
     .telegram-btn:hover {
-      background: #e5f3ff;
+      background: #e0f2fe;
     }
 
     @media (max-width: 480px) {
@@ -373,11 +378,20 @@
 
     <!-- Telegram CTA -->
     <section class="telegram-card">
-      <div class="telegram-icon">✈️</div>
+      <div class="telegram-icon">
+        <!-- Gerçek Telegram ikonu (SVG) -->
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="12" cy="12" r="12" fill="#0ea5e9" />
+          <path
+            d="M17.2 8.1 6.7 12.1c-.7.3-.7.9-.1 1.1l2.7.9 1 3.1c.1.2.2.3.4.3.2 0 .3-.1.4-.2l1.4-1.4 2.7 2c.5.3.8.1.9-.5l1.6-8.1c.2-.8-.3-1.2-.9-1z"
+            fill="#f9fafb"
+          />
+        </svg>
+      </div>
       <div class="telegram-text">
-        <div class="telegram-title">Telegram’da da güncel adresler seninle.</div>
+        <div class="telegram-title">Telegram’da da güncel adresleri kaçırma.</div>
         <div class="telegram-subtitle">
-          Hızlı bildirimler, yeni alan adları ve ekstra avantajlar için Telegram kanalımıza katıl.
+          Yeni alan adları ve hızlı bildirimler için Telegram kanalımıza katıl.
         </div>
       </div>
       <a
@@ -386,7 +400,7 @@
         target="_blank"
         rel="noopener noreferrer"
       >
-        TELEGRAM UYGULAMASINA GİT
+        TELEGRAM’A GİT
       </a>
     </section>
 

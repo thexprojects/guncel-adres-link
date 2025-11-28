@@ -277,10 +277,6 @@
             <span>Bethand</span>
             <small>Tıkla ve git</small>
           </div>
-          <div class="featured-card" data-key="verabet">
-            <span>Verabet</span>
-            <small>Tıkla ve git</small>
-          </div>
         </div>
       </div>
     </section>
@@ -288,7 +284,7 @@
     <!-- Search -->
     <section class="search-block">
       <div class="search-label">Site adını yaz</div>
-      <div class="search-caption">Örnek: betpas, restbet, bethand, verabet…</div>
+      <div class="search-caption">Örnek: betpas, restbet, bethand…</div>
 
       <form id="searchForm">
         <input id="siteInput" type="text" autocomplete="off" />
@@ -309,8 +305,7 @@
     const SITES = {
       betpas: "https://shoort.in/betpas",
       restbet: "https://shoort.in/restbet",
-      bethand: "https://shoort.in/bethand",
-      verabet: "https://veragit.link"
+      bethand: "https://shoort.in/bethand"
     };
 
     function normalize(str) {
@@ -332,10 +327,21 @@
       }
     }
 
-    // Kayan öne çıkanlar
+    // Kayan öne çıkanlar + buton click
     document.addEventListener("DOMContentLoaded", () => {
       const track = document.getElementById("featuredTrack");
-      if (track) track.innerHTML += track.innerHTML;
+      if (track) {
+        // İçeriği kopyalayarak kesintisiz kaydırma
+        track.innerHTML += track.innerHTML;
+
+        // Kopyalanmışlar dahil tüm kartlara tıklama eventi
+        track.querySelectorAll(".featured-card").forEach(card => {
+          card.addEventListener("click", () => {
+            const key = card.dataset.key;
+            if (key) goToKey(key);
+          });
+        });
+      }
     });
 
     const inputEl = document.getElementById("siteInput");
@@ -386,4 +392,3 @@
   </script>
 </body>
 </html>
-

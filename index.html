@@ -33,7 +33,7 @@
     }
 
     .ticker-highlight {
-      color: #facc15; /* SARİ */
+      color: #facc15; /* SARI */
       font-weight: 700;
     }
 
@@ -152,13 +152,14 @@
       gap: 8px;
     }
 
+    /* iOS zoom fix: 16px ve üzeri */
     input[type="text"] {
       flex: 1;
       padding: 10px 12px;
       border-radius: 999px;
       border: 1px solid #d1d5db;
       background: #ffffff;
-      font-size: 14px;
+      font-size: 16px;
       color: #0f172a;
     }
 
@@ -172,7 +173,7 @@
       border: none;
       border-radius: 999px;
       padding: 10px 18px;
-      font-size: 13px;
+      font-size: 16px; /* 16px */
       font-weight: 700;
       cursor: pointer;
       background: #facc15;
@@ -200,6 +201,7 @@
       background: #16a34a;
       color: #ecfdf5;
       padding-inline: 20px;
+      font-size: 16px; /* 16px */
     }
 
     .random-btn:hover {
@@ -235,9 +237,79 @@
       background: #f1f5f9;
     }
 
+    /* TELEGRAM CARD */
+    .telegram-card {
+      margin-top: 24px;
+      padding: 14px 16px;
+      border-radius: 20px;
+      background: linear-gradient(135deg, #0ea5e9, #0369a1);
+      color: #e0f2fe;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      box-shadow: 0 14px 30px rgba(15,23,42,0.25);
+    }
+
+    .telegram-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 999px;
+      background: rgba(15,23,42,0.18);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+    }
+
+    .telegram-text {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .telegram-title {
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 2px;
+      color: #f9fafb;
+    }
+
+    .telegram-subtitle {
+      font-size: 12px;
+      line-height: 1.4;
+      color: #e0f2fe;
+      opacity: 0.95;
+    }
+
+    .telegram-btn {
+      flex-shrink: 0;
+      border-radius: 999px;
+      padding: 9px 14px;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      background: #f9fafb;
+      color: #0369a1;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .telegram-btn:hover {
+      background: #e5f3ff;
+    }
+
     @media (max-width: 480px) {
       form { flex-direction: column; }
       button, .random-btn { width: 100%; }
+
+      .telegram-card {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .telegram-btn {
+        margin-top: 6px;
+      }
     }
   </style>
 </head>
@@ -299,6 +371,25 @@
       <button type="button" class="random-btn" id="randomBtn">SÜRPRİZ SİTEYE GİT</button>
     </section>
 
+    <!-- Telegram CTA -->
+    <section class="telegram-card">
+      <div class="telegram-icon">✈️</div>
+      <div class="telegram-text">
+        <div class="telegram-title">Telegram’da da güncel adresler seninle.</div>
+        <div class="telegram-subtitle">
+          Hızlı bildirimler, yeni alan adları ve ekstra avantajlar için Telegram kanalımıza katıl.
+        </div>
+      </div>
+      <a
+        href="https://t.me/telegram"
+        class="telegram-btn"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        TELEGRAM UYGULAMASINA GİT
+      </a>
+    </section>
+
   </main>
 
   <script>
@@ -334,7 +425,7 @@
         // İçeriği kopyalayarak kesintisiz kaydırma
         track.innerHTML += track.innerHTML;
 
-        // Kopyalanmışlar dahil tüm kartlara tıklama eventi
+        // Tüm kartlara tıklama eventi
         track.querySelectorAll(".featured-card").forEach(card => {
           card.addEventListener("click", () => {
             const key = card.dataset.key;
